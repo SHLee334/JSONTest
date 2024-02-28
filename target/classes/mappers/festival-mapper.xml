@@ -1,0 +1,9 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="festivalMapper">
+
+	<insert id="insertFestival" parameterType="Festival">
+		INSERT INTO festival(fes_name, fes_start_date, fes_end_date, fes_location, fes_latitude, fes_longitude, fes_fee_status, fes_fee, fes_age, fes_enroll_date, fes_operator, fes_url, fes_poster, fes_view_count, season_code, category_code)
+		VALUES(#{name}, #{startDate}, #{endDate}, #{status}, #{place}, #{lat}, #{lot}, #{feeStatus}, #{fee}, #{age}, #{enrollDate}, #{operator}, #{hmpgUrl}, #{poster}, #{viewCount}, #{season},	#{category})
+	</insert>
+
+</mapper>
