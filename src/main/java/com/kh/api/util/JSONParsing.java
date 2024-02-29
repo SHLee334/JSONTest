@@ -16,11 +16,13 @@ import org.json.JSONObject;
 
 import com.kh.api.model.vo.Festival;
 
+
+
 public class JSONParsing {
 
 	public static void main(String[] args) {
 
-		String url = "http://openapi.seoul.go.kr:8088/63795059616d677838387250726649/json/culturalEventInfo/1/10/";
+		String url = "http://openapi.seoul.go.kr:8088/63795059616d677838387250726649/json/culturalEventInfo/3001/3862/";
 
 		try {
 			Reader r = Resources.getResourceAsReader("mybatis-config.xml");
@@ -52,6 +54,7 @@ public class JSONParsing {
 
 			for (int i = 0; i < row.length(); i++) {
 				JSONObject result = row.getJSONObject(i);
+				
 				// 축제코드 자바코드 (auto_increment)
 				String title = result.getString("TITLE");
 				String startDate = result.getString("STRTDATE");
@@ -60,7 +63,7 @@ public class JSONParsing {
 				String place = result.getString("PLACE");
 				String lat = result.getString("LAT");
 				String lot = result.getString("LOT");
-				String feeStatus = result.getString("IS_FEE");
+				String feeStatus = result.getString("IS_FREE");
 				String fee = result.getString("USE_FEE");
 				String age = result.getString("USE_TRGT");
 				String enrollDate = result.getString("RGSTDATE");
@@ -70,12 +73,6 @@ public class JSONParsing {
 				// 뷰카운트 자바코드
 				// 시즌코드 자바코드
 				String category = result.getString("CODENAME");
-
-				System.out.println("title : " + title);
-				System.out.println("startDate : " + startDate);
-				System.out.println("STRTDATE : " + startDate.split(" ")[0]);
-				System.out.println("END_DATE : " + endDate.split(" ")[0]);
-				System.out.println();
 
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -99,7 +96,7 @@ public class JSONParsing {
 				// 시즌코드
 				fes.setCategory(category);
 
-				session.insert("festivalMapper", fes);
+				session.insert("festivalMapper.insertFestival", fes);
 				session.commit();
 			}
 		} catch (Exception e) {
