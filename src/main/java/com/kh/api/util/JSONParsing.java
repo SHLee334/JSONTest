@@ -22,6 +22,9 @@ public class JSONParsing {
 
 	public static void main(String[] args) {
 
+//		String url = "http://openapi.seoul.go.kr:8088/63795059616d677838387250726649/json/culturalEventInfo/1/1000/";
+//		String url = "http://openapi.seoul.go.kr:8088/63795059616d677838387250726649/json/culturalEventInfo/1001/2000/";
+//		String url = "http://openapi.seoul.go.kr:8088/63795059616d677838387250726649/json/culturalEventInfo/2001/3000/";
 		String url = "http://openapi.seoul.go.kr:8088/63795059616d677838387250726649/json/culturalEventInfo/3001/3862/";
 
 		try {
